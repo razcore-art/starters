@@ -1,2 +1,3 @@
-# starters
-Opinionated basic starter packs for various tools
+# Starters: eleventy
+
+Opinionated basic starter pack for [eleventy](https://www.11ty.dev/).
