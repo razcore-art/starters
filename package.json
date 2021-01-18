@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "@fec/eleventy-plugin-remark": "^2.1.0",
+    "@fec/remark-images": "^0.4.0-alpha",
     "@jamshop/eleventy-plugin-scss": "^1.0.0",
     "eslint": "^7.17.0",
     "eslint-config-standard": "^16.0.2",
@@ -17,6 +20,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "normalize.css": "^8.0.1",
-    "raster-sass": "^20.2.0"
+    "raster-sass": "^20.2.0",
+    "remark": "^12.0.1",
+    "remark-html": "^13.0.1"
   }
 }

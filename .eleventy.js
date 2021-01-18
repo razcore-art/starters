@@ -1,5 +1,7 @@
 const path = require('path')
 const pluginSCSS = require('@jamshop/eleventy-plugin-scss')
+const eleventyRemark = require('@fec/eleventy-plugin-remark')
+const remarkImages = require('@fec/remark-images')
 
 module.exports = (config) => {
   const userConfig = {
@@ -16,6 +18,18 @@ module.exports = (config) => {
   config.addPlugin(pluginSCSS, {
     entryPoints: { style: entryPointSCSS },
     output: outputSCSS,
+  })
+  config.addPlugin(eleventyRemark, {
+    plugins: [
+      {
+        plugin: remarkImages,
+        options: {
+          srcDir: userConfig.dir.input,
+          targetDir: userConfig.dir.output,
+          loadingPolicy: 'lazy',
+        },
+      },
+    ],
   })
 
   global.filters = config.javascriptFunctions
