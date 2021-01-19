@@ -13,12 +13,16 @@ module.exports = (config) => {
     },
   }
 
+  // SCSS
   const entryPointSCSS = path.join(userConfig.dir.input, 'scss', 'style.scss')
   const outputSCSS = path.join(userConfig.dir.output, 'css')
   config.addPlugin(pluginSCSS, {
     entryPoints: { style: entryPointSCSS },
     output: outputSCSS,
   })
+  config.addWatchTarget(path.join(userConfig.dir.input, 'scss'))
+
+  // Remark
   config.addPlugin(eleventyRemark, {
     plugins: [
       {
@@ -32,8 +36,14 @@ module.exports = (config) => {
     ],
   })
 
+  // Pug
   global.filters = config.javascriptFunctions
   config.setPugOptions({ globals: ['filters'] })
+
+  // Client-Side JS
+  const dirJS = path.join(userConfig.dir.input, 'js', '*.js')
+  config.addPassthroughCopy(dirJS)
+  config.addWatchTarget(dirJS)
 
   return userConfig
 }
